@@ -45,45 +45,37 @@ export const DebtDetailsAccordion = ({ data }: DebtDetailsAccordionProps) => {
           <AccordionContent>
             <div className="space-y-6 pt-4">
               {/* Operation Details Section */}
-              {(data.creditor || data.product || data.operationId) && (
-                <div className="space-y-3">
-                  <h4 className="text-sm font-semibold text-foreground flex items-center gap-2">
-                    <FileText className="h-4 w-4" />
-                    Operation Details
-                  </h4>
-                  <div className="space-y-3 pl-6 border-l-2 border-border">
-                    {data.creditor && (
-                      <div className="flex items-start gap-3">
-                        <Building2 className="h-4 w-4 text-muted-foreground mt-0.5" />
-                        <div>
-                          <p className="text-xs text-muted-foreground">Creditor</p>
-                          <p className="text-sm font-medium">{data.creditor}</p>
-                        </div>
-                      </div>
-                    )}
-                    
-                    {data.product && (
-                      <div className="flex items-start gap-3">
-                        <CreditCard className="h-4 w-4 text-muted-foreground mt-0.5" />
-                        <div>
-                          <p className="text-xs text-muted-foreground">Product</p>
-                          <p className="text-sm font-medium">{data.product}</p>
-                        </div>
-                      </div>
-                    )}
-                    
-                    {data.operationId && (
-                      <div className="flex items-start gap-3">
-                        <FileText className="h-4 w-4 text-muted-foreground mt-0.5" />
-                        <div>
-                          <p className="text-xs text-muted-foreground">Operation ID</p>
-                          <p className="text-sm font-mono">{data.operationId}</p>
-                        </div>
-                      </div>
-                    )}
+              <div className="space-y-3">
+                <h4 className="text-sm font-semibold text-foreground flex items-center gap-2">
+                  <FileText className="h-4 w-4" />
+                  Operation Details
+                </h4>
+                <div className="space-y-3 pl-6 border-l-2 border-border">
+                  <div className="flex items-start gap-3">
+                    <Building2 className="h-4 w-4 text-muted-foreground mt-0.5" />
+                    <div>
+                      <p className="text-xs text-muted-foreground">Creditor</p>
+                      <p className="text-sm font-medium">BANK</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <CreditCard className="h-4 w-4 text-muted-foreground mt-0.5" />
+                    <div>
+                      <p className="text-xs text-muted-foreground">Product</p>
+                      <p className="text-sm font-medium">Personal Loan</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <FileText className="h-4 w-4 text-muted-foreground mt-0.5" />
+                    <div>
+                      <p className="text-xs text-muted-foreground">Operation ID</p>
+                      <p className="text-sm font-mono">004938291430001613</p>
+                    </div>
                   </div>
                 </div>
-              )}
+              </div>
               
               {/* Payment History Section */}
               <div className="space-y-3">
@@ -93,54 +85,32 @@ export const DebtDetailsAccordion = ({ data }: DebtDetailsAccordionProps) => {
                 </h4>
                 <div className="space-y-4 pl-6 border-l-2 border-border">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {data.firstDefaultDate && (
-                      <div>
-                        <p className="text-xs text-muted-foreground">First Default</p>
-                        <p className="text-sm font-medium">{data.firstDefaultDate}</p>
-                      </div>
-                    )}
-                    {data.lastDefaultDate && (
-                      <div>
-                        <p className="text-xs text-muted-foreground">Last Default</p>
-                        <p className="text-sm font-medium">{data.lastDefaultDate}</p>
-                      </div>
-                    )}
-                    {data.unpaidInstallments && (
-                      <div>
-                        <p className="text-xs text-muted-foreground">Unpaid Installments</p>
-                        <p className="text-sm font-medium">{data.unpaidInstallments}</p>
-                      </div>
-                    )}
-                    {data.currentDebt && parseFloat(data.currentDebt) > 0 && (
-                      <div>
-                        <p className="text-xs text-muted-foreground">Balance Outstanding</p>
-                        <p className="text-sm font-medium">
-                          €{parseFloat(data.currentDebt).toLocaleString('en-US', { 
-                            minimumFractionDigits: 2, 
-                            maximumFractionDigits: 2 
-                          })}
-                        </p>
-                      </div>
-                    )}
-                    {data.maxDebtAmount && parseFloat(data.maxDebtAmount) > 0 && (
-                      <div>
-                        <p className="text-xs text-muted-foreground">Maximum Outstanding Amount</p>
-                        <p className="text-sm font-medium">
-                          €{parseFloat(data.maxDebtAmount).toLocaleString('en-US', { 
-                            minimumFractionDigits: 2, 
-                            maximumFractionDigits: 2 
-                          })}
-                        </p>
-                      </div>
-                    )}
-                    {data.currentDebt !== undefined && (
-                      <div>
-                        <p className="text-xs text-muted-foreground">Debt Status</p>
-                        <Badge variant={parseFloat(data.currentDebt) > 0 ? "destructive" : "outline"} className="mt-1">
-                          {parseFloat(data.currentDebt) > 0 ? "Active" : "Closed"}
-                        </Badge>
-                      </div>
-                    )}
+                    <div>
+                      <p className="text-xs text-muted-foreground">First Default</p>
+                      <p className="text-sm font-medium">30/11/2024</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground">Last Default</p>
+                      <p className="text-sm font-medium">11/05/2025</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground">Unpaid Installments</p>
+                      <p className="text-sm font-medium">6</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground">Balance Outstanding</p>
+                      <p className="text-sm font-medium">€8,629.62</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground">Maximum Outstanding Amount</p>
+                      <p className="text-sm font-medium">€8,629.62</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground">Debt Status</p>
+                      <Badge variant="destructive" className="mt-1">
+                        Active
+                      </Badge>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -188,28 +158,22 @@ export const DebtDetailsAccordion = ({ data }: DebtDetailsAccordionProps) => {
               </div>
               
               {/* Registration Details */}
-              {(data.registrationDate || data.lastUpdateDate) && (
-                <div className="space-y-3">
-                  <h4 className="text-sm font-semibold text-foreground flex items-center gap-2">
-                    <Calendar className="h-4 w-4" />
-                    Registration Details
-                  </h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pl-6 border-l-2 border-border">
-                    {data.registrationDate && (
-                      <div>
-                        <p className="text-xs text-muted-foreground">Registration Date</p>
-                        <p className="text-sm font-medium">{data.registrationDate}</p>
-                      </div>
-                    )}
-                    {data.lastUpdateDate && (
-                      <div>
-                        <p className="text-xs text-muted-foreground">Last Update</p>
-                        <p className="text-sm font-medium">{data.lastUpdateDate}</p>
-                      </div>
-                    )}
+              <div className="space-y-3">
+                <h4 className="text-sm font-semibold text-foreground flex items-center gap-2">
+                  <Calendar className="h-4 w-4" />
+                  Registration Details
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pl-6 border-l-2 border-border">
+                  <div>
+                    <p className="text-xs text-muted-foreground">Registration Date</p>
+                    <p className="text-sm font-medium">16/02/2025</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground">Last Update</p>
+                    <p className="text-sm font-medium">08/06/2025</p>
                   </div>
                 </div>
-              )}
+              </div>
               
               {/* Location */}
               {data.postalCode && (
