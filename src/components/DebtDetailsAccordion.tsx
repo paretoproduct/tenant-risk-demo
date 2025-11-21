@@ -51,28 +51,19 @@ export const DebtDetailsAccordion = ({ data }: DebtDetailsAccordionProps) => {
                   Operation Details
                 </h4>
                 <div className="space-y-3 pl-6 border-l-2 border-border">
-                  <div className="flex items-start gap-3">
-                    <Building2 className="h-4 w-4 text-muted-foreground mt-0.5" />
-                    <div>
-                      <p className="text-xs text-muted-foreground">Creditor</p>
-                      <p className="text-sm font-medium">BANK</p>
-                    </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground">Creditor</p>
+                    <p className="text-sm font-medium">BANK</p>
                   </div>
                   
-                  <div className="flex items-start gap-3">
-                    <CreditCard className="h-4 w-4 text-muted-foreground mt-0.5" />
-                    <div>
-                      <p className="text-xs text-muted-foreground">Product</p>
-                      <p className="text-sm font-medium">Personal Loan</p>
-                    </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground">Product</p>
+                    <p className="text-sm font-medium">Personal Loan</p>
                   </div>
                   
-                  <div className="flex items-start gap-3">
-                    <FileText className="h-4 w-4 text-muted-foreground mt-0.5" />
-                    <div>
-                      <p className="text-xs text-muted-foreground">Operation ID</p>
-                      <p className="text-sm font-mono">004938291430001613</p>
-                    </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground">Operation ID</p>
+                    <p className="text-sm font-mono">004938291430001613</p>
                   </div>
                 </div>
               </div>
@@ -146,11 +137,11 @@ export const DebtDetailsAccordion = ({ data }: DebtDetailsAccordionProps) => {
                       Late payment: 120–150 days
                     </span>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <Badge variant="outline" className="font-mono text-xs min-w-[2rem] justify-center">
+                  <div className="flex items-start gap-3 p-2 bg-destructive/10 rounded-md border border-destructive/20">
+                    <Badge variant="destructive" className="font-mono text-xs min-w-[2rem] justify-center">
                       J
                     </Badge>
-                    <span className="text-sm text-muted-foreground">
+                    <span className="text-sm font-medium text-foreground">
                       Judicial status
                     </span>
                   </div>
@@ -175,21 +166,26 @@ export const DebtDetailsAccordion = ({ data }: DebtDetailsAccordionProps) => {
                 </div>
               </div>
               
-              {/* Location */}
-              {data.postalCode && (
-                <div className="space-y-3">
-                  <h4 className="text-sm font-semibold text-foreground flex items-center gap-2">
-                    <MapPin className="h-4 w-4" />
-                    Location
-                  </h4>
-                  <div className="pl-6 border-l-2 border-border">
-                    <div>
-                      <p className="text-xs text-muted-foreground">Postal Code (Sociodemographic data)</p>
-                      <p className="text-sm font-medium">{data.postalCode}</p>
+              {/* Sociodemographic Mark */}
+              <div className="space-y-3">
+                <h4 className="text-sm font-semibold text-foreground flex items-center gap-2">
+                  <MapPin className="h-4 w-4" />
+                  Sociodemographic Mark
+                </h4>
+                <div className="pl-6 border-l-2 border-border">
+                  <div>
+                    <p className="text-xs text-muted-foreground mb-2">
+                      This classification comes from the postal code provided by the user and serves as a reference.
+                    </p>
+                    <div className="flex items-center gap-2">
+                      <Badge variant="secondary" className="text-base font-semibold px-3 py-1">
+                        C
+                      </Badge>
+                      <span className="text-xs text-muted-foreground">(Based on postal code: 28015)</span>
                     </div>
                   </div>
                 </div>
-              )}
+              </div>
             </div>
           </AccordionContent>
         </AccordionItem>
