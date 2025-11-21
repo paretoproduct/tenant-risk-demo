@@ -1,0 +1,255 @@
+{
+  "s:Envelope": {
+    "$": {
+      "xmlns:s": "http://schemas.xmlsoap.org/soap/envelope/"
+    },
+    "s:Body": {
+      "$": {
+        "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+        "xmlns:xsd": "http://www.w3.org/2001/XMLSchema"
+      },
+      "GenerarInformeResponse": {
+        "$": {
+          "xmlns": "http://experian.servicios.Delphi"
+        },
+        "GenerarInformeResult": {
+          "InformeDelphi4A3": {
+            "$": {
+              "xmlns": "http://experian.servicios.Delphi.V1"
+            },
+            "Error": {
+              "Codigo": "0000",
+              "Descripcion": "OK"
+            },
+            "ID_SUSCRIPTOR": "06025738",
+            "REFERENCIA_CONSULTA": "20250609094003-07W",
+            "PRODUCTO_SOLICITADO": "000",
+            "CANAL_SOLICITUD": "002",
+            "Documento": {
+              "TipoDocumento": {
+                "Codigo": "01",
+                "Descripcion": "NIF"
+              },
+              "NumeroDocumento": "50695107W",
+              "PaisDocumento": {
+                "Codigo": "724",
+                "Descripcion": "ESPAÑA"
+              }
+            },
+            "FECHA_NACIMIENTO": "26/04/1960",
+            "AUTONOMO": "00",
+            "DIRECCION": {
+              "Direccion": "",
+              "NombreLocalidad": "",
+              "CodigoLocalidad": "",
+              "Provincia": {
+                "Codigo": "",
+                "Descripcion": ""
+              },
+              "CodigoPostal": "28015"
+            },
+            "ResumenCais": {
+              "NumeroOperacionesImpagadas": "1",
+              "NumeroCuotasImpagadas": "6",
+              "PeorSituacionPago_Codigo": "J",
+              "PeorSituacionPagoHistorica_Codigo": "J",
+              "ImporteImpagado": "8629.62",
+              "MaximoImporteImpagado": "8629.62",
+              "FechaMaximoImporteImpagado": {
+                "DD": "11",
+                "MM": "05",
+                "AAAA": "2025"
+              },
+              "FechaPeorSituacionPagoHistorica": {
+                "DD": "11",
+                "MM": "05",
+                "AAAA": "2025"
+              },
+              "FechaAltaOperacionMasAntigua": {
+                "DD": "16",
+                "MM": "02",
+                "AAAA": "2025"
+              },
+              "FechaUltimaActualizacion": {
+                "DD": "08",
+                "MM": "06",
+                "AAAA": "2025"
+              }
+            },
+            "OrigenScore": {
+              "Codigo": "003",
+              "Descripcion": "Valoración a código postal con información de bureau, sociodemográfica y geoestadística"
+            },
+            "InformacionDelphi": {
+              "Puntuacion": "64",
+              "ProbabilidadIncumplimientoPorScore": "96.52",
+              "Nota": "H",
+              "Decil": "1",
+              "Percentil": "2"
+            }
+          }
+        }
+      }
+    }
+  },
+  "badexcugRawData": {
+    "s:Envelope": {
+      "$": {
+        "xmlns:s": "http://schemas.xmlsoap.org/soap/envelope/"
+      },
+      "s:Body": {
+        "$": {
+          "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+          "xmlns:xsd": "http://www.w3.org/2001/XMLSchema"
+        },
+        "GenerarInformeResponse": {
+          "$": {
+            "xmlns": "http://experian.servicios.CAIS"
+          },
+          "GenerarInformeResult": {
+            "InformeDetalleOperaciones": {
+              "$": {
+                "xmlns": "http://experian.servicios.CAIS.V2"
+              },
+              "IdSuscriptor": "06025738",
+              "ReferenciaConsulta": "20250609094003-07W",
+              "Error": {
+                "Codigo": "0000",
+                "Descripcion": "OK"
+              },
+              "MaximoRegistrosPagina": "5000",
+              "NumeroRegistrosDevueltos": "1",
+              "ExistenMas": "false",
+              "Documento": {
+                "TipoDocumento": {
+                  "Codigo": "01",
+                  "Descripcion": "NIF"
+                },
+                "NumeroDocumento": "50695107W",
+                "PaisDocumento": {
+                  "Codigo": "724",
+                  "Descripcion": "ESPAÑA"
+                }
+              },
+              "Registros": {
+                "TBloqueDetalleOperacion": {
+                  "IdOperacion": "004938291430001613",
+                  "Nombre": {
+                    "Nombre1": "MIGUEL",
+                    "Nombre2": "ANGEL",
+                    "ApellidosRazonSocial": "TEJERO ZARZA"
+                  },
+                  "Direccion": {
+                    "Direccion": "JOAQUIN MARIA LOPEZ 12 1 3",
+                    "NombreLocalidad": "MADRID",
+                    "CodigoLocalidad": "",
+                    "Provincia": {
+                      "Codigo": "28",
+                      "Descripcion": "Madrid"
+                    },
+                    "CodigoPostal": "28015"
+                  },
+                  "FechaInicio": {
+                    "DD": "28",
+                    "MM": "08",
+                    "AAAA": "2020"
+                  },
+                  "FechaFin": {
+                    "DD": "30",
+                    "MM": "08",
+                    "AAAA": "2026"
+                  },
+                  "TipoProductoFinanciado": {
+                    "Codigo": "02",
+                    "Descripcion": "Préstamos Personales"
+                  },
+                  "ImporteFinanciado": "0",
+                  "SituacionPago": {
+                    "TTipoCodigo": [
+                      {
+                        "Codigo": "J",
+                        "Descripcion": "Judicial"
+                      },
+                      {
+                        "Codigo": "J",
+                        "Descripcion": "Judicial"
+                      },
+                      {
+                        "Codigo": "4",
+                        "Descripcion": "Entre 120 y 150 días"
+                      },
+                      {
+                        "Codigo": "3",
+                        "Descripcion": "Entre 90 y 120 días"
+                      },
+                      {
+                        "Codigo": "2",
+                        "Descripcion": "Entre 60 y 90 días"
+                      }
+                    ]
+                  },
+                  "PeorSituacionPagoHistorica": {
+                    "Codigo": "J",
+                    "Descripcion": "Judicial"
+                  },
+                  "ImporteImpagadoTotal": "0",
+                  "SaldoImpagado": "8629.62",
+                  "NumeroCuotasImpagadas": "6",
+                  "ImporteCuota": "0",
+                  "FrecuenciaPago": {
+                    "Codigo": "99",
+                    "Descripcion": "No consta"
+                  },
+                  "TipoInterviniente": {
+                    "Codigo": "1",
+                    "Descripcion": "Titular"
+                  },
+                  "MaximoImporteImpagado": "8629.62",
+                  "FechaMaximoImporteImpagado": {
+                    "DD": "08",
+                    "MM": "06",
+                    "AAAA": "2025"
+                  },
+                  "FechaPrimerVencimientoImpagado": {
+                    "DD": "30",
+                    "MM": "11",
+                    "AAAA": "2024"
+                  },
+                  "FechaUltimoVencimientoImpagado": {
+                    "DD": "30",
+                    "MM": "04",
+                    "AAAA": "2025"
+                  },
+                  "FechaUltimaActualizacion": {
+                    "DD": "08",
+                    "MM": "06",
+                    "AAAA": "2025"
+                  },
+                  "FechaAlta": {
+                    "DD": "16",
+                    "MM": "02",
+                    "AAAA": "2025"
+                  },
+                  "ImporteAlta": "1187.82",
+                  "Informante": "BANCO"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "badexcug": [
+    {
+      "tipoDeAcreedor": "BANCO",
+      "producto": "Préstamos Personales",
+      "importeDeLasOperaciones": "0,00 €",
+      "situacion": "",
+      "numeroDeImpagados": 6,
+      "importeImpagados": "8629,62 €",
+      "fechaPrimerImpago": "30/11/2024",
+      "fechaUltimoImpago": "30/04/2025"
+    }
+  ]
+}
