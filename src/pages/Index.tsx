@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { RiskHeader } from "@/components/RiskHeader";
-import { RiskReason } from "@/components/RiskReason";
 import { DebtDetailsAccordion } from "@/components/DebtDetailsAccordion";
 import { parseExperianJSON, type ExperianData } from "@/lib/experianParser";
 import { Button } from "@/components/ui/button";
@@ -93,7 +92,6 @@ const Index = () => {
           </div>
 
           <RiskHeader data={data} />
-          <RiskReason data={data} />
           <DebtDetailsAccordion data={data} />
         </div>
       </div>
