@@ -16,6 +16,7 @@ export interface ExperianData {
   // Debt Details
   creditor?: string;
   product?: string;
+  operationId?: string;
   paymentHistory?: Array<{ code: string; description: string }>;
   firstDefaultDate?: string;
   registrationDate?: string;
@@ -110,6 +111,7 @@ export function parseExperianJSON(json: any): ExperianData {
   // Parse debt details
   let creditor = "";
   let product = "";
+  let operationId = "";
   let paymentHistory: Array<{ code: string; description: string }> = [];
   let firstDefaultDate = "";
   let registrationDate = "";
@@ -119,6 +121,7 @@ export function parseExperianJSON(json: any): ExperianData {
   if (detalleOperacion) {
     creditor = detalleOperacion.Informante || "";
     product = detalleOperacion.TipoProductoFinanciado?.Descripcion || "";
+    operationId = detalleOperacion.IdOperacion || "";
     
     // Parse payment history
     const situacionPago = detalleOperacion.SituacionPago?.TTipoCodigo;
@@ -169,6 +172,7 @@ export function parseExperianJSON(json: any): ExperianData {
     riskLevel,
     creditor,
     product,
+    operationId,
     paymentHistory,
     firstDefaultDate,
     registrationDate,

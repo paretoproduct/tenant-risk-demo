@@ -5,7 +5,15 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { FileText, Building2, CreditCard, Calendar, MapPin } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import {
+  FileText,
+  Building2,
+  CreditCard,
+  Calendar,
+  MapPin,
+  TrendingUp,
+} from "lucide-react";
 import type { ExperianData } from "@/lib/experianParser";
 
 interface DebtDetailsAccordionProps {
@@ -36,110 +44,165 @@ export const DebtDetailsAccordion = ({ data }: DebtDetailsAccordionProps) => {
           </AccordionTrigger>
           <AccordionContent>
             <div className="space-y-6 pt-4">
-              {/* Creditor Info */}
-              {data.creditor && (
-                <div className="flex items-start gap-3">
-                  <Building2 className="h-5 w-5 text-muted-foreground mt-0.5" />
-                  <div>
-                    <p className="text-xs text-muted-foreground mb-1">Creditor</p>
-                    <p className="text-sm font-medium">{data.creditor}</p>
-                  </div>
-                </div>
-              )}
-
-              {/* Product Type */}
-              {data.product && (
-                <div className="flex items-start gap-3">
-                  <CreditCard className="h-5 w-5 text-muted-foreground mt-0.5" />
-                  <div>
-                    <p className="text-xs text-muted-foreground mb-1">Product Type</p>
-                    <p className="text-sm font-medium">{data.product}</p>
-                  </div>
-                </div>
-              )}
-
-              {/* Key Dates */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t">
-                {data.firstDefaultDate && (
-                  <div className="flex items-start gap-3">
-                    <Calendar className="h-4 w-4 text-muted-foreground mt-0.5" />
-                    <div>
-                      <p className="text-xs text-muted-foreground mb-1">First Default</p>
-                      <p className="text-sm font-medium">{data.firstDefaultDate}</p>
-                    </div>
-                  </div>
-                )}
-                
-                {data.lastDefaultDate && (
-                  <div className="flex items-start gap-3">
-                    <Calendar className="h-4 w-4 text-muted-foreground mt-0.5" />
-                    <div>
-                      <p className="text-xs text-muted-foreground mb-1">Last Default</p>
-                      <p className="text-sm font-medium">{data.lastDefaultDate}</p>
-                    </div>
-                  </div>
-                )}
-                
-                {data.registrationDate && (
-                  <div className="flex items-start gap-3">
-                    <Calendar className="h-4 w-4 text-muted-foreground mt-0.5" />
-                    <div>
-                      <p className="text-xs text-muted-foreground mb-1">Registration Date</p>
-                      <p className="text-sm font-medium">{data.registrationDate}</p>
-                    </div>
-                  </div>
-                )}
-                
-                {data.lastUpdateDate && (
-                  <div className="flex items-start gap-3">
-                    <Calendar className="h-4 w-4 text-muted-foreground mt-0.5" />
-                    <div>
-                      <p className="text-xs text-muted-foreground mb-1">Last Update</p>
-                      <p className="text-sm font-medium">{data.lastUpdateDate}</p>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Maximum Debt Amount */}
-              {data.maxDebtAmount && parseFloat(data.maxDebtAmount) > 0 && (
-                <div className="pt-4 border-t">
-                  <p className="text-xs text-muted-foreground mb-1">Maximum Outstanding Amount</p>
-                  <p className="text-2xl font-bold text-risk-danger">
-                    €{parseFloat(data.maxDebtAmount).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                  </p>
-                </div>
-              )}
-
-              {/* Payment History Timeline */}
-              {data.paymentHistory && data.paymentHistory.length > 0 && (
-                <div className="pt-4 border-t">
-                  <p className="text-xs text-muted-foreground mb-3">Payment Status History</p>
-                  <div className="space-y-2">
-                    {data.paymentHistory.map((status, index) => (
-                      <div key={index} className="flex items-start gap-2 text-sm">
-                        <span className="h-1.5 w-1.5 rounded-full bg-risk-danger mt-2 flex-shrink-0" />
+              {/* Operation Details Section */}
+              {(data.creditor || data.product || data.operationId) && (
+                <div className="space-y-3">
+                  <h4 className="text-sm font-semibold text-foreground flex items-center gap-2">
+                    <FileText className="h-4 w-4" />
+                    Operation Details
+                  </h4>
+                  <div className="space-y-3 pl-6 border-l-2 border-border">
+                    {data.creditor && (
+                      <div className="flex items-start gap-3">
+                        <Building2 className="h-4 w-4 text-muted-foreground mt-0.5" />
                         <div>
-                          <span className="font-medium">{status.code}</span>
-                          {status.description && (
-                            <span className="text-muted-foreground"> - {status.description}</span>
-                          )}
+                          <p className="text-xs text-muted-foreground">Creditor</p>
+                          <p className="text-sm font-medium">{data.creditor}</p>
                         </div>
+                      </div>
+                    )}
+                    
+                    {data.product && (
+                      <div className="flex items-start gap-3">
+                        <CreditCard className="h-4 w-4 text-muted-foreground mt-0.5" />
+                        <div>
+                          <p className="text-xs text-muted-foreground">Product</p>
+                          <p className="text-sm font-medium">{data.product}</p>
+                        </div>
+                      </div>
+                    )}
+                    
+                    {data.operationId && (
+                      <div className="flex items-start gap-3">
+                        <FileText className="h-4 w-4 text-muted-foreground mt-0.5" />
+                        <div>
+                          <p className="text-xs text-muted-foreground">Operation ID</p>
+                          <p className="text-sm font-mono">{data.operationId}</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+              
+              {/* Payment History Section */}
+              <div className="space-y-3">
+                <h4 className="text-sm font-semibold text-foreground flex items-center gap-2">
+                  <Calendar className="h-4 w-4" />
+                  Payment History
+                </h4>
+                <div className="space-y-4 pl-6 border-l-2 border-border">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {data.firstDefaultDate && (
+                      <div>
+                        <p className="text-xs text-muted-foreground">First Default</p>
+                        <p className="text-sm font-medium">{data.firstDefaultDate}</p>
+                      </div>
+                    )}
+                    {data.lastDefaultDate && (
+                      <div>
+                        <p className="text-xs text-muted-foreground">Last Default</p>
+                        <p className="text-sm font-medium">{data.lastDefaultDate}</p>
+                      </div>
+                    )}
+                    {data.unpaidInstallments && (
+                      <div>
+                        <p className="text-xs text-muted-foreground">Unpaid Installments</p>
+                        <p className="text-sm font-medium">{data.unpaidInstallments}</p>
+                      </div>
+                    )}
+                    {data.currentDebt && parseFloat(data.currentDebt) > 0 && (
+                      <div>
+                        <p className="text-xs text-muted-foreground">Balance Outstanding</p>
+                        <p className="text-sm font-medium">
+                          €{parseFloat(data.currentDebt).toLocaleString('en-US', { 
+                            minimumFractionDigits: 2, 
+                            maximumFractionDigits: 2 
+                          })}
+                        </p>
+                      </div>
+                    )}
+                    {data.maxDebtAmount && parseFloat(data.maxDebtAmount) > 0 && (
+                      <div>
+                        <p className="text-xs text-muted-foreground">Maximum Outstanding Amount</p>
+                        <p className="text-sm font-medium">
+                          €{parseFloat(data.maxDebtAmount).toLocaleString('en-US', { 
+                            minimumFractionDigits: 2, 
+                            maximumFractionDigits: 2 
+                          })}
+                        </p>
+                      </div>
+                    )}
+                    {data.currentDebt !== undefined && (
+                      <div>
+                        <p className="text-xs text-muted-foreground">Debt Status</p>
+                        <Badge variant={parseFloat(data.currentDebt) > 0 ? "destructive" : "outline"} className="mt-1">
+                          {parseFloat(data.currentDebt) > 0 ? "Active" : "Closed"}
+                        </Badge>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+              
+              {/* Payment Status Evolution */}
+              {data.paymentHistory && data.paymentHistory.length > 0 && (
+                <div className="space-y-3">
+                  <h4 className="text-sm font-semibold text-foreground flex items-center gap-2">
+                    <TrendingUp className="h-4 w-4" />
+                    Payment Status Evolution
+                  </h4>
+                  <div className="space-y-2 pl-6 border-l-2 border-border">
+                    {data.paymentHistory.map((item, index) => (
+                      <div key={index} className="flex items-center gap-3">
+                        <Badge variant="outline" className="font-mono text-xs">
+                          {item.code}
+                        </Badge>
+                        <span className="text-sm text-muted-foreground">
+                          {item.description}
+                        </span>
                       </div>
                     ))}
                   </div>
                 </div>
               )}
-
-              {/* Postal Code (Sociodemographic) */}
+              
+              {/* Registration Details */}
+              {(data.registrationDate || data.lastUpdateDate) && (
+                <div className="space-y-3">
+                  <h4 className="text-sm font-semibold text-foreground flex items-center gap-2">
+                    <Calendar className="h-4 w-4" />
+                    Registration Details
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pl-6 border-l-2 border-border">
+                    {data.registrationDate && (
+                      <div>
+                        <p className="text-xs text-muted-foreground">Registration Date</p>
+                        <p className="text-sm font-medium">{data.registrationDate}</p>
+                      </div>
+                    )}
+                    {data.lastUpdateDate && (
+                      <div>
+                        <p className="text-xs text-muted-foreground">Last Update</p>
+                        <p className="text-sm font-medium">{data.lastUpdateDate}</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+              
+              {/* Location */}
               {data.postalCode && (
-                <div className="flex items-start gap-3 pt-4 border-t">
-                  <MapPin className="h-4 w-4 text-muted-foreground mt-0.5" />
-                  <div>
-                    <p className="text-xs text-muted-foreground mb-1">
-                      Postal Code (Sociodemographic data provided by tenant)
-                    </p>
-                    <p className="text-sm font-medium">{data.postalCode}</p>
+                <div className="space-y-3">
+                  <h4 className="text-sm font-semibold text-foreground flex items-center gap-2">
+                    <MapPin className="h-4 w-4" />
+                    Location
+                  </h4>
+                  <div className="pl-6 border-l-2 border-border">
+                    <div>
+                      <p className="text-xs text-muted-foreground">Postal Code (Sociodemographic data)</p>
+                      <p className="text-sm font-medium">{data.postalCode}</p>
+                    </div>
                   </div>
                 </div>
               )}
