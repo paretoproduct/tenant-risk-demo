@@ -31,11 +31,6 @@ export const RiskHeader = ({ data }: RiskHeaderProps) => {
               <span className={`text-4xl font-bold tabular-nums ${isRisky ? 'text-risk-danger' : 'text-risk-safe'}`}>
                 {probability.toFixed(2)}%
               </span>
-              {data.isJudicial && (
-                <Badge variant="destructive" className="mb-2">
-                  Judicial
-                </Badge>
-              )}
             </div>
           </div>
           
