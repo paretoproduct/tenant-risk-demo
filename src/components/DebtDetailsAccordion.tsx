@@ -146,48 +146,46 @@ export const DebtDetailsAccordion = ({ data }: DebtDetailsAccordionProps) => {
               </div>
               
               {/* Payment Status Evolution */}
-              {data.paymentHistory && data.paymentHistory.length > 0 && (
-                <div className="space-y-3">
-                  <h4 className="text-sm font-semibold text-foreground flex items-center gap-2">
-                    <TrendingUp className="h-4 w-4" />
-                    Payment Status Evolution
-                  </h4>
-                  <div className="space-y-2 pl-6 border-l-2 border-border">
-                    <div className="flex items-start gap-3">
-                      <Badge variant="outline" className="font-mono text-xs min-w-[2rem] justify-center">
-                        2
-                      </Badge>
-                      <span className="text-sm text-muted-foreground">
-                        Late payment: 60–90 days
-                      </span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Badge variant="outline" className="font-mono text-xs min-w-[2rem] justify-center">
-                        3
-                      </Badge>
-                      <span className="text-sm text-muted-foreground">
-                        Late payment: 90–120 days
-                      </span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Badge variant="outline" className="font-mono text-xs min-w-[2rem] justify-center">
-                        4
-                      </Badge>
-                      <span className="text-sm text-muted-foreground">
-                        Late payment: 120–150 days
-                      </span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Badge variant="outline" className="font-mono text-xs min-w-[2rem] justify-center">
-                        J
-                      </Badge>
-                      <span className="text-sm text-muted-foreground">
-                        Judicial status
-                      </span>
-                    </div>
+              <div className="space-y-3">
+                <h4 className="text-sm font-semibold text-foreground flex items-center gap-2">
+                  <TrendingUp className="h-4 w-4" />
+                  Payment Status Evolution
+                </h4>
+                <div className="space-y-2 pl-6 border-l-2 border-border">
+                  <div className="flex items-start gap-3">
+                    <Badge variant="outline" className="font-mono text-xs min-w-[2rem] justify-center">
+                      2
+                    </Badge>
+                    <span className="text-sm text-muted-foreground">
+                      Late payment: 60–90 days
+                    </span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Badge variant="outline" className="font-mono text-xs min-w-[2rem] justify-center">
+                      3
+                    </Badge>
+                    <span className="text-sm text-muted-foreground">
+                      Late payment: 90–120 days
+                    </span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Badge variant="outline" className="font-mono text-xs min-w-[2rem] justify-center">
+                      4
+                    </Badge>
+                    <span className="text-sm text-muted-foreground">
+                      Late payment: 120–150 days
+                    </span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Badge variant="outline" className="font-mono text-xs min-w-[2rem] justify-center">
+                      J
+                    </Badge>
+                    <span className="text-sm text-muted-foreground">
+                      Judicial status
+                    </span>
                   </div>
                 </div>
-              )}
+              </div>
               
               {/* Registration Details */}
               {(data.registrationDate || data.lastUpdateDate) && (
