@@ -28,7 +28,7 @@ export const RiskHeader = ({ data }: RiskHeaderProps) => {
               </h2>
             </div>
             <div className="flex items-baseline gap-2">
-              <span className={`text-6xl font-bold tabular-nums ${isRisky ? 'text-risk-danger' : 'text-risk-safe'}`}>
+              <span className={`text-4xl font-bold tabular-nums ${isRisky ? 'text-risk-danger' : 'text-risk-safe'}`}>
                 {probability.toFixed(2)}%
               </span>
               {data.isJudicial && (
