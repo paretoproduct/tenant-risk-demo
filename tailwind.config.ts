@@ -47,6 +47,28 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        risk: {
+          safe: "hsl(var(--risk-safe))",
+          "safe-bg": "hsl(var(--risk-safe-bg))",
+          "safe-border": "hsl(var(--risk-safe-border))",
+          danger: "hsl(var(--risk-danger))",
+          "danger-bg": "hsl(var(--risk-danger-bg))",
+          "danger-border": "hsl(var(--risk-danger-border))",
+          warning: "hsl(var(--risk-warning))",
+          "warning-bg": "hsl(var(--risk-warning-bg))",
+          "warning-border": "hsl(var(--risk-warning-border))",
+        },
+        metric: {
+          text: "hsl(var(--metric-text))",
+          muted: "hsl(var(--metric-muted))",
+        },
+        chart: {
+          "1": "hsl(var(--chart-1))",
+          "2": "hsl(var(--chart-2))",
+          "3": "hsl(var(--chart-3))",
+          "4": "hsl(var(--chart-4))",
+          "5": "hsl(var(--chart-5))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

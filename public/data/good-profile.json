@@ -1,0 +1,141 @@
+{
+    "s:Envelope": {
+      "$": {
+        "xmlns:s": "http://schemas.xmlsoap.org/soap/envelope/"
+      },
+      "s:Body": {
+        "$": {
+          "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+          "xmlns:xsd": "http://www.w3.org/2001/XMLSchema"
+        },
+        "GenerarInformeResponse": {
+          "$": {
+            "xmlns": "http://experian.servicios.Delphi"
+          },
+          "GenerarInformeResult": {
+            "InformeDelphi4A3": {
+              "$": {
+                "xmlns": "http://experian.servicios.Delphi.V1"
+              },
+              "Error": {
+                "Codigo": "0000",
+                "Descripcion": "OK"
+              },
+              "ID_SUSCRIPTOR": "06025738",
+              "REFERENCIA_CONSULTA": "20251112171107-89C",
+              "PRODUCTO_SOLICITADO": "000",
+              "CANAL_SOLICITUD": "002",
+              "Documento": {
+                "TipoDocumento": {
+                  "Codigo": "02",
+                  "Descripcion": "NIE"
+                },
+                "NumeroDocumento": "X8052389C",
+                "PaisDocumento": {
+                  "Codigo": "724",
+                  "Descripcion": "ESPAÑA"
+                }
+              },
+              "FECHA_NACIMIENTO": "18/07/1979",
+              "AUTONOMO": "00",
+              "DIRECCION": {
+                "Direccion": "",
+                "NombreLocalidad": "",
+                "CodigoLocalidad": "",
+                "Provincia": {
+                  "Codigo": "",
+                  "Descripcion": ""
+                },
+                "CodigoPostal": "28010"
+              },
+              "ResumenCais": {
+                "NumeroOperacionesImpagadas": "0",
+                "NumeroCuotasImpagadas": "0",
+                "PeorSituacionPago_Codigo": "",
+                "PeorSituacionPagoHistorica_Codigo": "",
+                "ImporteImpagado": "0",
+                "MaximoImporteImpagado": "0",
+                "FechaMaximoImporteImpagado": {
+                  "DD": "01",
+                  "MM": "01",
+                  "AAAA": "0001"
+                },
+                "FechaPeorSituacionPagoHistorica": {
+                  "DD": "01",
+                  "MM": "01",
+                  "AAAA": "0001"
+                },
+                "FechaAltaOperacionMasAntigua": {
+                  "DD": "01",
+                  "MM": "01",
+                  "AAAA": "0001"
+                },
+                "FechaUltimaActualizacion": {
+                  "DD": "01",
+                  "MM": "01",
+                  "AAAA": "0001"
+                }
+              },
+              "OrigenScore": {
+                "Codigo": "004",
+                "Descripcion": "Valoración a código postal con información sociodemográfica y geoestadística"
+              },
+              "InformacionDelphi": {
+                "Puntuacion": "746",
+                "ProbabilidadIncumplimientoPorScore": "0.099589",
+                "Nota": "F",
+                "Decil": "3",
+                "Percentil": "22"
+              }
+            }
+          }
+        }
+      }
+    },
+    "badexcugRawData": {
+      "s:Envelope": {
+        "$": {
+          "xmlns:s": "http://schemas.xmlsoap.org/soap/envelope/"
+        },
+        "s:Body": {
+          "$": {
+            "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+            "xmlns:xsd": "http://www.w3.org/2001/XMLSchema"
+          },
+          "GenerarInformeResponse": {
+            "$": {
+              "xmlns": "http://experian.servicios.CAIS"
+            },
+            "GenerarInformeResult": {
+              "InformeDetalleOperaciones": {
+                "$": {
+                  "xmlns": "http://experian.servicios.CAIS.V2"
+                },
+                "IdSuscriptor": "06025738",
+                "ReferenciaConsulta": "20251112171107-89C",
+                "Error": {
+                  "Codigo": "4030",
+                  "Descripcion": "No se ha encontrado en la base de datos el elemento consultado"
+                },
+                "MaximoRegistrosPagina": "5000",
+                "NumeroRegistrosDevueltos": "0",
+                "ExistenMas": "false",
+                "Documento": {
+                  "TipoDocumento": {
+                    "Codigo": "02",
+                    "Descripcion": "NIE"
+                  },
+                  "NumeroDocumento": "X8052389C",
+                  "PaisDocumento": {
+                    "Codigo": "724",
+                    "Descripcion": "ESPAÑA"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "badexcug": []
+  }
