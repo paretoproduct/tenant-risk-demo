@@ -112,10 +112,10 @@ export const DebtDetailsAccordion = ({ data }: DebtDetailsAccordionProps) => {
                   <TrendingUp className="h-4 w-4" />
                   Payment Status Evolution
                 </h4>
-                <p className="text-xs text-muted-foreground pl-6">
-                  This timeline shows how the debt progressed — from early late payments (60–150 days), which indicate several missed installments, to a judicial status, meaning the case has escalated to formal legal action.
-                </p>
                 <div className="space-y-2 pl-6 border-l-2 border-border">
+                  <p className="text-xs text-muted-foreground mb-3">
+                    This timeline shows how the debt progressed — from early late payments (60–150 days), which indicate several missed installments, to a judicial status, meaning the case has escalated to formal legal action.
+                  </p>
                   <div className="flex items-start gap-3">
                     <Badge variant="outline" className="font-mono text-xs min-w-[2rem] justify-center">
                       2
@@ -157,17 +157,19 @@ export const DebtDetailsAccordion = ({ data }: DebtDetailsAccordionProps) => {
                   <Calendar className="h-4 w-4" />
                   Registration Details
                 </h4>
-                <p className="text-xs text-muted-foreground pl-6">
-                  The registration date shows when the unpaid debt was first reported to the credit bureau, and the last update reflects the most recent information provided by the lender.
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pl-6 border-l-2 border-border">
-                  <div>
-                    <p className="text-xs text-muted-foreground">Registration Date</p>
-                    <p className="text-sm font-medium">16/02/2025</p>
-                  </div>
-                  <div>
-                    <p className="text-xs text-muted-foreground">Last Update</p>
-                    <p className="text-sm font-medium">08/06/2025</p>
+                <div className="space-y-3 pl-6 border-l-2 border-border">
+                  <p className="text-xs text-muted-foreground">
+                    The registration date shows when the unpaid debt was first reported to the credit bureau, and the last update reflects the most recent information provided by the lender.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <p className="text-xs text-muted-foreground">Registration Date</p>
+                      <p className="text-sm font-medium">16/02/2025</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground">Last Update</p>
+                      <p className="text-sm font-medium">08/06/2025</p>
+                    </div>
                   </div>
                 </div>
               </div>
