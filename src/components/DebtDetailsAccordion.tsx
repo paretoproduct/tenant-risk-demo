@@ -51,6 +51,9 @@ export const DebtDetailsAccordion = ({ data }: DebtDetailsAccordionProps) => {
                   Operation Details
                 </h4>
                 <div className="space-y-3 pl-6 border-l-2 border-border">
+                  <p className="text-xs text-muted-foreground mb-3">
+                    It identifies the loan behind the debt, showing who issued it, what type of credit it is, and the official operation ID used by the lender when reporting it to the credit bureau.
+                  </p>
                   <div>
                     <p className="text-xs text-muted-foreground">Creditor</p>
                     <p className="text-sm font-medium">BANK</p>
@@ -75,6 +78,9 @@ export const DebtDetailsAccordion = ({ data }: DebtDetailsAccordionProps) => {
                   Payment History
                 </h4>
                 <div className="space-y-4 pl-6 border-l-2 border-border">
+                  <p className="text-xs text-muted-foreground mb-3">
+                    It summarises how the debt has evolved over time — when the tenant first stopped paying, how many installments remain unpaid, how much is still owed, and the most recent status reported by the lender.
+                  </p>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <p className="text-xs text-muted-foreground">First Default</p>
