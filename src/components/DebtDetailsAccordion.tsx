@@ -175,7 +175,7 @@ export const DebtDetailsAccordion = ({ data }: DebtDetailsAccordionProps) => {
                 <div className="pl-6 border-l-2 border-border">
                   <div>
                     <p className="text-xs text-muted-foreground mb-2">
-                      This classification comes from the postal code provided by the user and serves as a reference.
+                      This rating comes from neighborhood demographics, not the tenant's personal data. Areas scored 'A' tend to show lower average risk, while 'F' areas show higher risk, though this still doesn't describe the tenant themselves.
                     </p>
                     <div className="flex items-center gap-2">
                       <Badge variant="secondary" className="text-base font-semibold px-3 py-1">
