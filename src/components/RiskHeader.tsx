@@ -31,14 +31,14 @@ export const RiskHeader = ({ data }: RiskHeaderProps) => {
 
             {/* Key Metrics for Bad Profile */}
             {isRisky && (
-              <div className="flex justify-between items-start mt-6 w-full">
-                <div className="flex flex-col items-center text-center">
-                  <p className="text-sm text-gray-600 mb-1">Payment Status</p>
+              <div className="flex justify-evenly mt-6 w-full">
+                <div className="flex-1 flex flex-col items-center text-center">
+                  <p className="text-sm text-gray-600">Payment Status</p>
                   <p className="text-base font-semibold text-red-600">{data.historyStatus}</p>
                 </div>
 
-                <div className="flex flex-col items-center text-center">
-                  <p className="text-sm text-gray-600 mb-1">Current Debt</p>
+                <div className="flex-1 flex flex-col items-center text-center">
+                  <p className="text-sm text-gray-600">Current Debt</p>
                   <p className="text-base font-semibold text-gray-900">
                     €
                     {parseFloat(data.currentDebt).toLocaleString("en-US", {
@@ -48,14 +48,14 @@ export const RiskHeader = ({ data }: RiskHeaderProps) => {
                   </p>
                 </div>
 
-                <div className="flex flex-col items-center text-center">
-                  <p className="text-sm text-gray-600 mb-1">Unpaid Installments</p>
+                <div className="flex-1 flex flex-col items-center text-center">
+                  <p className="text-sm text-gray-600">Unpaid Installments</p>
                   <p className="text-base font-semibold text-gray-900">{data.unpaidInstallments}</p>
                 </div>
 
                 {data.lastDefaultDate && (
-                  <div className="flex flex-col items-center text-center">
-                    <p className="text-sm text-gray-600 mb-1">Last Default</p>
+                  <div className="flex-1 flex flex-col items-center text-center">
+                    <p className="text-sm text-gray-600">Last Default</p>
                     <p className="text-base font-semibold text-gray-900">{data.lastDefaultDate}</p>
                   </div>
                 )}
@@ -76,7 +76,6 @@ export const RiskHeader = ({ data }: RiskHeaderProps) => {
           </div>
         </div>
       </Card>
-
     </div>
   );
 };
