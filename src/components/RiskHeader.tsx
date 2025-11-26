@@ -32,12 +32,12 @@ export const RiskHeader = ({ data }: RiskHeaderProps) => {
             {/* Key Metrics for Bad Profile */}
             {isRisky && (
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 w-full">
-                <div>
+                <div className="flex flex-col items-center text-center">
                   <p className="text-sm text-gray-600 mb-1">Payment Status</p>
                   <p className="text-base font-semibold text-red-600">{data.historyStatus}</p>
                 </div>
 
-                <div>
+                <div className="flex flex-col items-center text-center">
                   <p className="text-sm text-gray-600 mb-1">Current Debt</p>
                   <p className="text-base font-semibold text-gray-900">
                     €
@@ -48,13 +48,13 @@ export const RiskHeader = ({ data }: RiskHeaderProps) => {
                   </p>
                 </div>
 
-                <div>
+                <div className="flex flex-col items-center text-center">
                   <p className="text-sm text-gray-600 mb-1">Unpaid Installments</p>
                   <p className="text-base font-semibold text-gray-900">{data.unpaidInstallments}</p>
                 </div>
 
                 {data.lastDefaultDate && (
-                  <div>
+                  <div className="flex flex-col items-center text-center">
                     <p className="text-sm text-gray-600 mb-1">Last Default</p>
                     <p className="text-base font-semibold text-gray-900">{data.lastDefaultDate}</p>
                   </div>
