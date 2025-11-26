@@ -78,8 +78,8 @@ export const DebtDetailsAccordion = ({ data }: DebtDetailsAccordionProps) => {
                       <TooltipTrigger asChild>
                         <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
                       </TooltipTrigger>
-                      <TooltipContent className="max-w-xs">
-                        <p>
+                      <TooltipContent className="max-w-xs font-normal">
+                        <p className="text-xs text-muted-foreground leading-relaxed">
                           It summarises how the debt has evolved over time — when the tenant first stopped paying, how
                           many installments remain unpaid, how much is still owed, and the most recent status reported
                           by the lender.
