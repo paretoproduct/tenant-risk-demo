@@ -128,8 +128,8 @@ export const DebtDetailsAccordion = ({ data }: DebtDetailsAccordionProps) => {
                       <TooltipTrigger asChild>
                         <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
                       </TooltipTrigger>
-                      <TooltipContent className="max-w-xs">
-                        <p>
+                      <TooltipContent className="max-w-xs font-normal">
+                        <p className="text-xs text-muted-foreground leading-relaxed">
                           This timeline shows how the debt progressed — from early late payments (60–150 days), which
                           indicate several missed installments, to a judicial status, meaning the case has escalated to
                           formal legal action.
@@ -174,8 +174,8 @@ export const DebtDetailsAccordion = ({ data }: DebtDetailsAccordionProps) => {
                       <TooltipTrigger asChild>
                         <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
                       </TooltipTrigger>
-                      <TooltipContent className="max-w-xs">
-                        <p>
+                      <TooltipContent className="max-w-xs font-normal">
+                        <p className="text-xs text-muted-foreground leading-relaxed">
                           The registration date shows when the unpaid debt was first reported to the credit bureau, and
                           the last update reflects the most recent information provided by the lender.
                         </p>
@@ -205,8 +205,8 @@ export const DebtDetailsAccordion = ({ data }: DebtDetailsAccordionProps) => {
                       <TooltipTrigger asChild>
                         <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
                       </TooltipTrigger>
-                      <TooltipContent className="max-w-xs">
-                        <p>
+                      <TooltipContent className="max-w-xs font-normal">
+                        <p className="text-xs text-muted-foreground leading-relaxed">
                           This rating comes from neighborhood demographics, not the tenant's personal data. Areas scored
                           'A' tend to show lower average risk, while 'F' areas show higher risk, though this still
                           doesn't describe the tenant themselves.
