@@ -43,7 +43,7 @@ export const DebtDetailsAccordion = ({ data }: DebtDetailsAccordionProps) => {
                       <TooltipTrigger asChild>
                         <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
                       </TooltipTrigger>
-                      <TooltipContent className="max-w-xs">
+                      <TooltipContent className="max-w-xs font-normal">
                         <p className="text-xs text-muted-foreground leading-relaxed">
                           It identifies the loan behind the debt, showing who issued it, what type of credit it is, and
                           the official operation ID used by the lender when reporting it to the credit bureau.
