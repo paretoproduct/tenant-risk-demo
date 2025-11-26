@@ -1,6 +1,5 @@
-import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { AlertCircle, CheckCircle2, TrendingUp } from "lucide-react";
+import { AlertCircle, CheckCircle2, TrendingUp, FileText } from "lucide-react";
 import type { ExperianData } from "@/lib/experianParser";
 
 interface RiskHeaderProps {
@@ -9,83 +8,88 @@ interface RiskHeaderProps {
 
 export const RiskHeader = ({ data }: RiskHeaderProps) => {
   const isRisky = data.hasDefaults;
-  const probability = parseFloat(data.defaultProbability);
+  const isHighRisk = data.riskLevel === 'high';
+  const isLowRisk = data.riskLevel === 'low';
 
   return (
-    <Card className={`p-6 border-2 ${isRisky ? 'bg-risk-danger-bg border-risk-danger-border' : 'bg-risk-safe-bg border-risk-safe-border'}`}>
-      <div className="space-y-6">
-        {/* Main Probability Score */}
+    <div className="space-y-4">
+      {/* Main Status Card */}
+      <Card className={`p-6 border-2 ${isRisky ? 'bg-red-50 border-red-200' : 'bg-green-50 border-green-200'}`}>
         <div className="flex items-start justify-between">
           <div className="flex-1">
-            <div className="flex items-center gap-3 mb-2">
+            <div className="flex items-center gap-3 mb-3">
               {isRisky ? (
-                <AlertCircle className="h-6 w-6 text-risk-danger" />
+                <AlertCircle className="h-5 w-5 text-red-600" />
               ) : (
-                <CheckCircle2 className="h-6 w-6 text-risk-safe" />
+                <CheckCircle2 className="h-5 w-5 text-green-600" />
               )}
-              <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wide">
-                Default Probability
+              <h2 className="text-sm font-medium text-gray-600 uppercase tracking-wide">
+                Default Status
               </h2>
             </div>
-            <div className="flex items-baseline gap-2">
-              <span className={`text-4xl font-bold tabular-nums ${isRisky ? 'text-risk-danger' : 'text-risk-safe'}`}>
-                {probability.toFixed(2)}%
-              </span>
-            </div>
+            <h3 className={`text-3xl font-bold ${isRisky ? 'text-red-600' : 'text-green-600'}`}>
+              {isRisky ? 'Defaults detected' : 'No defaults detected'}
+            </h3>
+            
+            {/* Key Metrics for Bad Profile */}
+            {isRisky && (
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6">
+                <div>
+                  <p className="text-sm text-gray-600 mb-1">Payment Status</p>
+                  <p className="text-base font-semibold text-red-600">
+                    {data.historyStatus}
+                  </p>
+                </div>
+                
+                <div>
+                  <p className="text-sm text-gray-600 mb-1">Current Debt</p>
+                  <p className="text-base font-semibold text-gray-900">
+                    €{parseFloat(data.currentDebt).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  </p>
+                </div>
+                
+                <div>
+                  <p className="text-sm text-gray-600 mb-1">Unpaid Installments</p>
+                  <p className="text-base font-semibold text-gray-900">
+                    {data.unpaidInstallments}
+                  </p>
+                </div>
+                
+                {data.lastDefaultDate && (
+                  <div>
+                    <p className="text-sm text-gray-600 mb-1">Last Default</p>
+                    <p className="text-base font-semibold text-gray-900">
+                      {data.lastDefaultDate}
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
           
-          {/* Risk Level Indicator */}
-          <div className={`px-4 py-2 rounded-lg ${
-            data.riskLevel === 'high' ? 'bg-risk-danger text-white' :
-            data.riskLevel === 'medium' ? 'bg-risk-warning text-white' :
-            'bg-risk-safe text-white'
+          {/* Risk Level Badge */}
+          <div className={`px-4 py-2 rounded-lg flex-shrink-0 ${
+            isHighRisk ? 'bg-red-500 text-white' : 'bg-green-500 text-white'
           }`}>
             <div className="flex items-center gap-2">
               <TrendingUp className="h-4 w-4" />
-              <span className="text-sm font-semibold uppercase">
+              <span className="text-sm font-semibold uppercase whitespace-nowrap">
                 {data.riskLevel} Risk
               </span>
             </div>
           </div>
         </div>
+      </Card>
 
-        {/* Key Metrics Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-border/50">
-          <div>
-            <p className="text-xs text-muted-foreground mb-1">Payment Status</p>
-            <p className={`text-sm font-semibold ${isRisky ? 'text-risk-danger' : 'text-risk-safe'}`}>
-              {data.historyStatus}
-            </p>
+      {/* Additional Info Card - Only for Good Profile */}
+      {!isRisky && (
+        <Card className="p-6 bg-muted/30">
+          <div className="flex items-center gap-3 text-muted-foreground">
+            <FileText className="h-5 w-5" />
+            <p className="text-sm">This user has no default history.</p>
           </div>
-          
-          {data.hasDefaults && (
-            <>
-              <div>
-                <p className="text-xs text-muted-foreground mb-1">Current Debt</p>
-                <p className="text-sm font-semibold text-foreground">
-                  €{parseFloat(data.currentDebt).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                </p>
-              </div>
-              
-              <div>
-                <p className="text-xs text-muted-foreground mb-1">Unpaid Installments</p>
-                <p className="text-sm font-semibold text-foreground">
-                  {data.unpaidInstallments}
-                </p>
-              </div>
-              
-              {data.lastDefaultDate && (
-                <div>
-                  <p className="text-xs text-muted-foreground mb-1">Last Default</p>
-                  <p className="text-sm font-semibold text-foreground">
-                    {data.lastDefaultDate}
-                  </p>
-                </div>
-              )}
-            </>
-          )}
-        </div>
-      </div>
-    </Card>
+        </Card>
+      )}
+    </div>
   );
 };
