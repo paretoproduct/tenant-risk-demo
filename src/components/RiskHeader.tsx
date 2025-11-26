@@ -31,7 +31,7 @@ export const RiskHeader = ({ data }: RiskHeaderProps) => {
 
             {/* Key Metrics for Bad Profile */}
             {isRisky && (
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 w-full">
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Payment Status</p>
                   <p className="text-base font-semibold text-red-600">{data.historyStatus}</p>
@@ -77,15 +77,6 @@ export const RiskHeader = ({ data }: RiskHeaderProps) => {
         </div>
       </Card>
 
-      {/* Additional Info Card - Only for Good Profile */}
-      {!isRisky && (
-        <Card className="p-6 bg-muted/30">
-          <div className="flex items-center gap-3 text-muted-foreground">
-            <FileText className="h-5 w-5" />
-            <p className="text-sm">This user has no default history.</p>
-          </div>
-        </Card>
-      )}
     </div>
   );
 };
