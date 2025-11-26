@@ -7,12 +7,19 @@ import {
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import {
   FileText,
   Building2,
   CreditCard,
   Calendar,
   MapPin,
   TrendingUp,
+  Info,
 } from "lucide-react";
 import type { ExperianData } from "@/lib/experianParser";
 
@@ -43,17 +50,23 @@ export const DebtDetailsAccordion = ({ data }: DebtDetailsAccordionProps) => {
             </div>
           </AccordionTrigger>
           <AccordionContent>
-            <div className="space-y-6 pt-4">
+            <TooltipProvider>
+              <div className="space-y-6 pt-4">
               {/* Operation Details Section */}
               <div className="space-y-3">
                 <h4 className="text-sm font-semibold text-foreground flex items-center gap-2">
                   <FileText className="h-4 w-4" />
                   Operation Details
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
+                    </TooltipTrigger>
+                    <TooltipContent className="max-w-xs">
+                      <p>It identifies the loan behind the debt, showing who issued it, what type of credit it is, and the official operation ID used by the lender when reporting it to the credit bureau.</p>
+                    </TooltipContent>
+                  </Tooltip>
                 </h4>
                 <div className="space-y-3 pl-6 border-l-2 border-border">
-                  <p className="text-xs text-muted-foreground mb-3">
-                    It identifies the loan behind the debt, showing who issued it, what type of credit it is, and the official operation ID used by the lender when reporting it to the credit bureau.
-                  </p>
                   <div>
                     <p className="text-xs text-muted-foreground">Creditor</p>
                     <p className="text-sm font-medium">BANK</p>
@@ -76,11 +89,16 @@ export const DebtDetailsAccordion = ({ data }: DebtDetailsAccordionProps) => {
                 <h4 className="text-sm font-semibold text-foreground flex items-center gap-2">
                   <Calendar className="h-4 w-4" />
                   Payment History
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
+                    </TooltipTrigger>
+                    <TooltipContent className="max-w-xs">
+                      <p>It summarises how the debt has evolved over time — when the tenant first stopped paying, how many installments remain unpaid, how much is still owed, and the most recent status reported by the lender.</p>
+                    </TooltipContent>
+                  </Tooltip>
                 </h4>
                 <div className="space-y-4 pl-6 border-l-2 border-border">
-                  <p className="text-xs text-muted-foreground mb-3">
-                    It summarises how the debt has evolved over time — when the tenant first stopped paying, how many installments remain unpaid, how much is still owed, and the most recent status reported by the lender.
-                  </p>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <p className="text-xs text-muted-foreground">First Default</p>
@@ -117,11 +135,16 @@ export const DebtDetailsAccordion = ({ data }: DebtDetailsAccordionProps) => {
                 <h4 className="text-sm font-semibold text-foreground flex items-center gap-2">
                   <TrendingUp className="h-4 w-4" />
                   Payment Status Evolution
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
+                    </TooltipTrigger>
+                    <TooltipContent className="max-w-xs">
+                      <p>This timeline shows how the debt progressed — from early late payments (60–150 days), which indicate several missed installments, to a judicial status, meaning the case has escalated to formal legal action.</p>
+                    </TooltipContent>
+                  </Tooltip>
                 </h4>
                 <div className="space-y-2 pl-6 border-l-2 border-border">
-                  <p className="text-xs text-muted-foreground mb-3">
-                    This timeline shows how the debt progressed — from early late payments (60–150 days), which indicate several missed installments, to a judicial status, meaning the case has escalated to formal legal action.
-                  </p>
                   <div className="flex items-start gap-3">
                     <Badge variant="outline" className="font-mono text-xs min-w-[2rem] justify-center">
                       2
@@ -162,11 +185,16 @@ export const DebtDetailsAccordion = ({ data }: DebtDetailsAccordionProps) => {
                 <h4 className="text-sm font-semibold text-foreground flex items-center gap-2">
                   <Calendar className="h-4 w-4" />
                   Registration Details
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
+                    </TooltipTrigger>
+                    <TooltipContent className="max-w-xs">
+                      <p>The registration date shows when the unpaid debt was first reported to the credit bureau, and the last update reflects the most recent information provided by the lender.</p>
+                    </TooltipContent>
+                  </Tooltip>
                 </h4>
                 <div className="space-y-3 pl-6 border-l-2 border-border">
-                  <p className="text-xs text-muted-foreground">
-                    The registration date shows when the unpaid debt was first reported to the credit bureau, and the last update reflects the most recent information provided by the lender.
-                  </p>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <p className="text-xs text-muted-foreground">Registration Date</p>
@@ -185,12 +213,17 @@ export const DebtDetailsAccordion = ({ data }: DebtDetailsAccordionProps) => {
                 <h4 className="text-sm font-semibold text-foreground flex items-center gap-2">
                   <MapPin className="h-4 w-4" />
                   Sociodemographic Mark
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
+                    </TooltipTrigger>
+                    <TooltipContent className="max-w-xs">
+                      <p>This rating comes from neighborhood demographics, not the tenant's personal data. Areas scored 'A' tend to show lower average risk, while 'F' areas show higher risk, though this still doesn't describe the tenant themselves.</p>
+                    </TooltipContent>
+                  </Tooltip>
                 </h4>
                 <div className="pl-6 border-l-2 border-border">
                   <div>
-                    <p className="text-xs text-muted-foreground mb-2">
-                      This rating comes from neighborhood demographics, not the tenant's personal data. Areas scored 'A' tend to show lower average risk, while 'F' areas show higher risk, though this still doesn't describe the tenant themselves.
-                    </p>
                     <div className="flex items-center gap-2">
                       <Badge variant="secondary" className="text-base font-semibold px-3 py-1">
                         C
@@ -201,6 +234,7 @@ export const DebtDetailsAccordion = ({ data }: DebtDetailsAccordionProps) => {
                 </div>
               </div>
             </div>
+            </TooltipProvider>
           </AccordionContent>
         </AccordionItem>
       </Accordion>
